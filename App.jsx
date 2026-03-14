@@ -26,6 +26,9 @@ const C = {
     overlay: "rgba(0,0,0,0.55)",
     white: "#FFFFFF",
     black: "#000000",
+    lavender: "#9B7BFF",
+    lavenderLight: "#B8A0FF",
+    lavenderGradient: "linear-gradient(135deg, #9B7BFF, #6A4E9B)",
 };
 
 const API_CHAT_URL = "/api/chat";
@@ -449,7 +452,8 @@ function AuthModal({ isOpen, onClose, onLogin }) {
         }}>
             <div style={{
                 background: C.cardBg, borderRadius: 28, padding: 40,
-                maxWidth: 420, width: "100%", boxShadow: "0 20px 40px rgba(0,0,0,0.4)"
+                maxWidth: 420, width: "100%", boxShadow: "0 20px 40px rgba(0,0,0,0.4)",
+                border: "4px solid #9B7BFF"
             }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24 }}>
                     <h2 style={{ fontSize: 22, fontWeight: 700, color: C.darkGreen, margin: 0 }}>
@@ -485,7 +489,7 @@ function AuthModal({ isOpen, onClose, onLogin }) {
                                 onChange={e => setName(e.target.value)}
                                 style={{
                                     width: "100%", padding: "12px 16px", borderRadius: 12,
-                                    border: `1px solid rgba(26,58,46,0.2)`, fontSize: 16,
+                                    border: `2px solid #9B7BFF`, fontSize: 16,
                                     outline: "none", boxSizing: "border-box"
                                 }}
                                 required
@@ -500,7 +504,7 @@ function AuthModal({ isOpen, onClose, onLogin }) {
                             onChange={e => setEmail(e.target.value)}
                             style={{
                                 width: "100%", padding: "12px 16px", borderRadius: 12,
-                                border: `1px solid rgba(26,58,46,0.2)`, fontSize: 16,
+                                border: `2px solid #9B7BFF`, fontSize: 16,
                                 outline: "none", boxSizing: "border-box"
                             }}
                             required
@@ -514,7 +518,7 @@ function AuthModal({ isOpen, onClose, onLogin }) {
                             onChange={e => setPassword(e.target.value)}
                             style={{
                                 width: "100%", padding: "12px 16px", borderRadius: 12,
-                                border: `1px solid rgba(26,58,46,0.2)`, fontSize: 16,
+                                border: `2px solid #9B7BFF`, fontSize: 16,
                                 outline: "none", boxSizing: "border-box", paddingRight: 40
                             }}
                             required
@@ -537,7 +541,7 @@ function AuthModal({ isOpen, onClose, onLogin }) {
                                 onChange={e => setConfirmPassword(e.target.value)}
                                 style={{
                                     width: "100%", padding: "12px 16px", borderRadius: 12,
-                                    border: `1px solid rgba(26,58,46,0.2)`, fontSize: 16,
+                                    border: `2px solid #9B7BFF`, fontSize: 16,
                                     outline: "none", boxSizing: "border-box", paddingRight: 40
                                 }}
                                 required
@@ -565,7 +569,7 @@ function AuthModal({ isOpen, onClose, onLogin }) {
                         type="submit"
                         style={{
                             width: "100%", height: 52, borderRadius: 40, border: "none",
-                            background: C.darkGreen, color: C.textLight, fontSize: 16,
+                            background: C.lavenderGradient, color: C.white, fontSize: 16,
                             fontWeight: 700, cursor: "pointer", transition: "opacity 0.2s"
                         }}
                     >
@@ -605,7 +609,7 @@ function Navbar({ user, onLogout, onAuthClick, historyCount }) {
             <div style={{
                 position: "sticky", top: 0, zIndex: 100,
                 height: 80, background: "rgba(26,58,46,0.88)",
-                backdropFilter: "blur(14px)", borderBottom: `1px solid ${C.border}`,
+                backdropFilter: "blur(14px)", borderBottom: `4px solid #9B7BFF`,
                 display: "flex", alignItems: "center", justifyContent: "space-between",
                 padding: "0 32px"
             }}>
@@ -618,7 +622,7 @@ function Navbar({ user, onLogout, onAuthClick, historyCount }) {
                             <button
                                 onClick={() => setShowDropdown(!showDropdown)}
                                 style={{
-                                    background: "rgba(255,255,255,0.08)", border: `1px solid ${C.border}`,
+                                    background: "rgba(255,255,255,0.08)", border: `2px solid #9B7BFF`,
                                     borderRadius: 10, padding: "8px 12px", color: C.textLight,
                                     fontSize: 13, display: "flex", alignItems: "center", gap: 6,
                                     cursor: "pointer"
@@ -631,7 +635,7 @@ function Navbar({ user, onLogout, onAuthClick, historyCount }) {
                                     position: "absolute", top: "100%", right: 0, marginTop: 8,
                                     width: 320, background: C.dropdownBg, borderRadius: 16,
                                     boxShadow: "0 20px 40px rgba(0,0,0,0.4)", padding: 12,
-                                    border: `1px solid ${C.border}`
+                                    border: `2px solid #9B7BFF`
                                 }}>
                                     <div style={{ color: C.textLight, fontSize: 14, marginBottom: 8 }}>
                                         Последние записи
@@ -655,8 +659,8 @@ function Navbar({ user, onLogout, onAuthClick, historyCount }) {
                             <button
                                 onClick={() => onAuthClick("register")}
                                 style={{
-                                    background: C.textLight, border: "none", borderRadius: 40,
-                                    padding: "8px 24px", color: C.darkGreen, fontSize: 14,
+                                    background: C.lavenderGradient, border: "none", borderRadius: 40,
+                                    padding: "8px 24px", color: C.white, fontSize: 14,
                                     fontWeight: 700, cursor: "pointer"
                                 }}
                             >Регистрация</button>
@@ -698,12 +702,14 @@ function Hero() {
             }}>
                 <div style={{
                     background: C.heroBg, borderRadius: 24, padding: 48,
-                    opacity: 0.94
+                    opacity: 0.94,
+                    border: "4px solid #9B7BFF"
                 }}>
                     <div style={{
                         display: "inline-flex", alignItems: "center", gap: 8,
                         background: "rgba(26,58,46,0.1)", borderRadius: 99,
-                        padding: "8px 16px", marginBottom: 24
+                        padding: "8px 16px", marginBottom: 24,
+                        border: "2px solid #9B7BFF"
                     }}>
                         <span style={{ width: 6, height: 6, borderRadius: "50%", background: C.success }}></span>
                         <span style={{ fontSize: 13, color: C.darkGreen }}>AI-анализ за секунды</span>
@@ -722,22 +728,21 @@ function Hero() {
                     </p>
                     <div style={{ display: "flex", gap: 16 }}>
                         <button style={{
-                            background: C.darkGreen, color: C.textLight,
+                            background: C.lavenderGradient, color: C.white,
                             border: "none", borderRadius: 40, padding: "16px 32px",
                             fontSize: 16, fontWeight: 700, cursor: "pointer",
-                            transition: "transform 0.2s, box-shadow 0.2s",
-                            boxShadow: "0 4px 12px rgba(0,0,0,0.2)"
+                            transition: "transform 0.2s"
                         }}
-                            onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 20px rgba(0,0,0,0.3)"; }}
-                            onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.2)"; }}
+                            onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; }}
+                            onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; }}
                         >Загрузить договор</button>
                         <button style={{
-                            background: "transparent", border: `1.5px solid ${C.darkGreen}`,
+                            background: "transparent", border: `2px solid #9B7BFF`,
                             borderRadius: 40, padding: "16px 32px", fontSize: 16,
                             fontWeight: 500, color: C.darkGreen, cursor: "pointer",
                             opacity: 0.75, transition: "background 0.2s"
                         }}
-                            onMouseEnter={e => { e.currentTarget.style.background = C.darkGreen; e.currentTarget.style.color = C.textLight; e.currentTarget.style.opacity = 1; }}
+                            onMouseEnter={e => { e.currentTarget.style.background = C.lavenderGradient; e.currentTarget.style.color = C.white; e.currentTarget.style.opacity = 1; }}
                             onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = C.darkGreen; e.currentTarget.style.opacity = 0.75; }}
                         >Задать вопрос ассистенту</button>
                     </div>
@@ -792,7 +797,8 @@ function FileUpload({ onFileSelect, onTextChange, text, error, analyzing }) {
     return (
         <div style={{
             maxWidth: 600, margin: "0 auto", background: C.cardBg,
-            borderRadius: 24, padding: 32, boxShadow: "0 20px 30px rgba(0,0,0,0.22)"
+            borderRadius: 24, padding: 32,
+            border: "4px solid #9B7BFF"
         }}>
             <div
                 onDragEnter={handleDrag}
@@ -800,9 +806,9 @@ function FileUpload({ onFileSelect, onTextChange, text, error, analyzing }) {
                 onDragOver={handleDrag}
                 onDrop={handleDrop}
                 style={{
-                    border: `2px dashed ${dragActive ? C.darkGreen : C.darkGreen}`,
+                    border: `4px dashed ${dragActive ? "#9B7BFF" : "#9B7BFF"}`,
                     borderRadius: 16, padding: "44px 20px", textAlign: "center",
-                    background: dragActive ? "rgba(26,58,46,0.06)" : "transparent",
+                    background: dragActive ? "rgba(155, 123, 255, 0.1)" : "transparent",
                     transition: "background 0.2s, border-style 0.2s",
                     borderStyle: dragActive ? "solid" : "dashed",
                     marginBottom: fileName ? 16 : 0
@@ -831,8 +837,9 @@ function FileUpload({ onFileSelect, onTextChange, text, error, analyzing }) {
             {fileName && (
                 <div style={{
                     display: "flex", alignItems: "center", justifyContent: "space-between",
-                    background: "rgba(26,58,46,0.07)", borderRadius: 12,
-                    padding: "14px 18px", marginTop: 16
+                    background: "rgba(155, 123, 255, 0.2)", borderRadius: 12,
+                    padding: "14px 18px", marginTop: 16,
+                    border: "2px solid #9B7BFF"
                 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                         <span style={{ fontSize: 16 }}>📎</span>
@@ -853,8 +860,8 @@ function FileUpload({ onFileSelect, onTextChange, text, error, analyzing }) {
                         disabled={analyzing}
                         style={{
                             width: "100%", padding: 12, borderRadius: 12,
-                            border: `1.5px solid rgba(26,58,46,0.18)`, fontSize: 14,
-                            background: "rgba(26,58,46,0.04)", color: C.darkGreen,
+                            border: `2px solid #9B7BFF`, fontSize: 14,
+                            background: "rgba(155, 123, 255, 0.1)", color: C.darkGreen,
                             resize: "vertical", outline: "none", boxSizing: "border-box"
                         }}
                     />
@@ -907,7 +914,8 @@ function VerdictCard({ analysis, onToggleDetails, showDetails, onDownloadPdf }) 
             background: getColor(),
             borderRadius: 24, padding: "36px 40px",
             backgroundImage: "radial-gradient(circle at 15% 60%, rgba(255,255,255,0.12), transparent 55%)",
-            marginBottom: 16
+            marginBottom: 16,
+            border: "4px solid #B8A0FF"
         }}>
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 16 }}>
                 <span style={{ width: 16, height: 16, borderRadius: "50%", background: "rgba(0,0,0,0.25)" }} />
@@ -918,7 +926,7 @@ function VerdictCard({ analysis, onToggleDetails, showDetails, onDownloadPdf }) 
                 <button
                     onClick={onToggleDetails}
                     style={{
-                        background: "transparent", border: `1px solid rgba(240,230,213,0.55)`,
+                        background: "transparent", border: `2px solid rgba(240,230,213,0.55)`,
                         borderRadius: 40, padding: "12px 24px", color: C.white,
                         fontSize: 15, fontWeight: 500, cursor: "pointer"
                     }}
@@ -930,13 +938,11 @@ function VerdictCard({ analysis, onToggleDetails, showDetails, onDownloadPdf }) 
                 <button
                     onClick={onDownloadPdf}
                     style={{
-                        background: "rgba(255,255,255,0.12)", border: `1px solid rgba(240,230,213,0.3)`,
+                        background: C.lavenderGradient, border: "none",
                         borderRadius: 40, padding: "12px 24px", color: C.white,
                         fontSize: 15, fontWeight: 500, cursor: "pointer",
                         display: "flex", alignItems: "center", gap: 8
                     }}
-                    onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.2)"}
-                    onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.12)"}
                 >
                     <span>📥</span> Сохранить как HTML
                 </button>
@@ -982,15 +988,40 @@ function AnalysisCharts({ analysis }) {
             borderRadius: 24,
             padding: 24,
             marginTop: 24,
-            boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+            border: "4px solid #9B7BFF"
         }}>
-            <h3 style={{ fontSize: 18, fontWeight: 700, color: C.darkGreen, marginBottom: 20 }}>
+            <h3 style={{
+                fontSize: 18,
+                fontWeight: 700,
+                color: C.darkGreen,
+                marginBottom: 20,
+                textAlign: "center",
+                background: C.lavenderGradient,
+                padding: "12px",
+                borderRadius: "12px",
+                color: "#FFFFFF"
+            }}>
                 Визуальный анализ договора
             </h3>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
-                <div style={{ background: '#f8f9fa', borderRadius: 16, padding: 16 }}>
-                    <h4 style={{ fontSize: 14, fontWeight: 600, color: C.darkGreen, marginBottom: 16 }}>
+                <div style={{
+                    background: '#f8f9fa',
+                    borderRadius: 16,
+                    padding: 16,
+                    border: "2px solid #9B7BFF"
+                }}>
+                    <h4 style={{
+                        fontSize: 14,
+                        fontWeight: 600,
+                        color: C.darkGreen,
+                        marginBottom: 16,
+                        textAlign: "center",
+                        background: C.lavenderGradient,
+                        padding: "8px",
+                        borderRadius: "8px",
+                        color: "#FFFFFF"
+                    }}>
                         Основные параметры
                     </h4>
                     <ResponsiveContainer width="100%" height={200}>
@@ -1008,8 +1039,23 @@ function AnalysisCharts({ analysis }) {
                     </ResponsiveContainer>
                 </div>
 
-                <div style={{ background: '#f8f9fa', borderRadius: 16, padding: 16 }}>
-                    <h4 style={{ fontSize: 14, fontWeight: 600, color: C.darkGreen, marginBottom: 16 }}>
+                <div style={{
+                    background: '#f8f9fa',
+                    borderRadius: 16,
+                    padding: 16,
+                    border: "2px solid #9B7BFF"
+                }}>
+                    <h4 style={{
+                        fontSize: 14,
+                        fontWeight: 600,
+                        color: C.darkGreen,
+                        marginBottom: 16,
+                        textAlign: "center",
+                        background: C.lavenderGradient,
+                        padding: "8px",
+                        borderRadius: "8px",
+                        color: "#FFFFFF"
+                    }}>
                         Распределение рисков
                     </h4>
                     <ResponsiveContainer width="100%" height={200}>
@@ -1040,8 +1086,23 @@ function AnalysisCharts({ analysis }) {
                 </div>
 
                 {feesData.length > 0 && (
-                    <div style={{ background: '#f8f9fa', borderRadius: 16, padding: 16 }}>
-                        <h4 style={{ fontSize: 14, fontWeight: 600, color: C.darkGreen, marginBottom: 16 }}>
+                    <div style={{
+                        background: '#f8f9fa',
+                        borderRadius: 16,
+                        padding: 16,
+                        border: "2px solid #9B7BFF"
+                    }}>
+                        <h4 style={{
+                            fontSize: 14,
+                            fontWeight: 600,
+                            color: C.darkGreen,
+                            marginBottom: 16,
+                            textAlign: "center",
+                            background: C.lavenderGradient,
+                            padding: "8px",
+                            borderRadius: "8px",
+                            color: "#FFFFFF"
+                        }}>
                             Уровень опасности комиссий
                         </h4>
                         <ResponsiveContainer width="100%" height={200}>
@@ -1070,12 +1131,24 @@ function AnalysisCharts({ analysis }) {
                     background: '#f8f9fa',
                     borderRadius: 16,
                     padding: 16,
+                    border: "2px solid #9B7BFF",
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center'
                 }}>
-                    <h4 style={{ fontSize: 14, fontWeight: 600, color: C.darkGreen, marginBottom: 16 }}>
+                    <h4 style={{
+                        fontSize: 14,
+                        fontWeight: 600,
+                        color: C.darkGreen,
+                        marginBottom: 16,
+                        textAlign: "center",
+                        background: C.lavenderGradient,
+                        padding: "8px",
+                        borderRadius: "8px",
+                        color: "#FFFFFF",
+                        width: "100%"
+                    }}>
                         Общая оценка
                     </h4>
                     <div style={{
@@ -1112,7 +1185,17 @@ function AnalysisCharts({ analysis }) {
 
             {(analysis.hidden_fees?.length > 0 || analysis.traps?.length > 0) && (
                 <div style={{ marginTop: 24 }}>
-                    <h4 style={{ fontSize: 14, fontWeight: 600, color: C.darkGreen, marginBottom: 12 }}>
+                    <h4 style={{
+                        fontSize: 14,
+                        fontWeight: 600,
+                        color: C.darkGreen,
+                        marginBottom: 12,
+                        textAlign: "center",
+                        background: C.lavenderGradient,
+                        padding: "8px",
+                        borderRadius: "8px",
+                        color: "#FFFFFF"
+                    }}>
                         Детализация рисков
                     </h4>
                     <div style={{ display: 'grid', gap: 10 }}>
@@ -1164,7 +1247,13 @@ function AccordionDetails({ analysis }) {
 
     return (
         <div style={{ maxHeight: 6000, overflow: "hidden", transition: "max-height 0.45s ease-in-out" }}>
-            <div style={{ background: C.cardBg, borderRadius: 24, padding: 36, marginTop: 16 }}>
+            <div style={{
+                background: C.cardBg,
+                borderRadius: 24,
+                padding: 36,
+                marginTop: 16,
+                border: "4px solid #9B7BFF"
+            }}>
                 <h3 style={{ fontSize: 22, fontWeight: 700, color: C.darkGreen, marginBottom: 24 }}>Параметры кредита</h3>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16, marginBottom: 28 }}>
                     {[
@@ -1240,12 +1329,12 @@ function AccordionDetails({ analysis }) {
                     )}
                 </div>
 
-                <div style={{ marginTop: 32, background: "rgba(240,230,213,0.07)", border: `1px solid ${C.border}`, borderRadius: 20, padding: "24px 32px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                <div style={{ marginTop: 32, background: C.lavenderGradient, border: `2px solid #9B7BFF`, borderRadius: 20, padding: "24px 32px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                     <div>
-                        <div style={{ fontSize: 16, fontWeight: 700, color: C.textLight }}>Остались вопросы?</div>
-                        <div style={{ fontSize: 14, opacity: 0.6, color: C.textLight }}>Спросите у ассистента</div>
+                        <div style={{ fontSize: 16, fontWeight: 700, color: C.white }}>Остались вопросы?</div>
+                        <div style={{ fontSize: 14, opacity: 0.9, color: C.white }}>Спросите у ассистента</div>
                     </div>
-                    <button style={{ background: C.textLight, border: "none", borderRadius: 40, padding: "12px 24px", color: C.darkGreen, fontSize: 14, fontWeight: 700, cursor: "pointer" }}>Спросить ассистента</button>
+                    <button style={{ background: C.white, border: "none", borderRadius: 40, padding: "12px 24px", color: C.darkGreen, fontSize: 14, fontWeight: 700, cursor: "pointer" }}>Спросить ассистента</button>
                 </div>
             </div>
         </div>
@@ -1347,7 +1436,7 @@ function ComparisonSection() {
                 <div style={{ display: "grid", gridTemplateColumns: `repeat(${offers.length}, 1fr)`, gap: 16 }}>
                     {offers.map((offer) => (
                         <div key={offer.id} style={{
-                            background: "rgba(255,255,255,0.07)", border: `1px solid ${C.border}`,
+                            background: "rgba(255,255,255,0.07)", border: `4px solid #9B7BFF`,
                             borderRadius: 20, padding: 20
                         }}>
                             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
@@ -1367,13 +1456,13 @@ function ComparisonSection() {
 
                             <div
                                 style={{
-                                    border: "1.5px dashed rgba(255,255,255,0.25)", borderRadius: 12,
+                                    border: "4px dashed #9B7BFF", borderRadius: 12,
                                     padding: "28px 12px", textAlign: "center", cursor: "pointer",
                                     transition: "border-color 0.2s"
                                 }}
                                 onClick={() => document.getElementById(`file-${offer.id}`).click()}
-                                onMouseEnter={e => e.currentTarget.style.borderColor = "rgba(255,255,255,0.5)"}
-                                onMouseLeave={e => e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)"}
+                                onMouseEnter={e => { e.currentTarget.style.borderColor = "#B8A0FF"; }}
+                                onMouseLeave={e => { e.currentTarget.style.borderColor = "#9B7BFF"; }}
                             >
                                 <div style={{ fontSize: 24, marginBottom: 8 }}>📎</div>
                                 <div style={{ fontSize: 12, color: C.textMuted }}>Выбрать файл</div>
@@ -1392,8 +1481,9 @@ function ComparisonSection() {
                             {offer.file && (
                                 <div style={{
                                     display: "flex", alignItems: "center", justifyContent: "space-between",
-                                    background: "rgba(255,255,255,0.1)", borderRadius: 8,
-                                    padding: "8px 12px", marginTop: 8
+                                    background: "rgba(155, 123, 255, 0.2)", borderRadius: 8,
+                                    padding: "8px 12px", marginTop: 8,
+                                    border: "2px solid #9B7BFF"
                                 }}>
                                     <div style={{ display: "flex", alignItems: "center", gap: 6, overflow: "hidden" }}>
                                         <span style={{ fontSize: 14 }}>📎</span>
@@ -1422,7 +1512,7 @@ function ComparisonSection() {
                                 rows={4}
                                 style={{
                                     width: "100%", marginTop: 12, padding: 8,
-                                    background: "rgba(255,255,255,0.06)", border: `1px solid rgba(255,255,255,0.15)`,
+                                    background: "rgba(155, 123, 255, 0.1)", border: `2px solid #9B7BFF`,
                                     borderRadius: 10, color: C.textLight, fontSize: 12,
                                     resize: "vertical", outline: "none"
                                 }}
@@ -1450,13 +1540,13 @@ function ComparisonSection() {
                         <button
                             onClick={addOffer}
                             style={{
-                                border: `2px dashed ${C.border}`, background: "rgba(255,255,255,0.05)",
+                                border: `4px dashed #9B7BFF`, background: "rgba(155, 123, 255, 0.1)",
                                 borderRadius: 20, minHeight: 120, display: "flex", alignItems: "center",
                                 justifyContent: "center", fontSize: 24, color: C.textMuted,
                                 cursor: "pointer", transition: "opacity 0.2s", borderStyle: "dashed"
                             }}
-                            onMouseEnter={e => { e.currentTarget.style.opacity = 0.85; e.currentTarget.style.borderColor = C.textLight; }}
-                            onMouseLeave={e => { e.currentTarget.style.opacity = 0.5; e.currentTarget.style.borderColor = C.border; }}
+                            onMouseEnter={e => { e.currentTarget.style.opacity = 0.85; e.currentTarget.style.borderColor = "#B8A0FF"; }}
+                            onMouseLeave={e => { e.currentTarget.style.opacity = 0.5; e.currentTarget.style.borderColor = "#9B7BFF"; }}
                         >
                             +
                         </button>
@@ -1469,9 +1559,9 @@ function ComparisonSection() {
                             onClick={handleCompare}
                             disabled={loadingCompare}
                             style={{
-                                background: loadingCompare ? "rgba(240,230,213,0.2)" : C.textLight,
+                                background: loadingCompare ? "rgba(155, 123, 255, 0.3)" : C.lavenderGradient,
                                 border: "none", borderRadius: 40, padding: "16px 40px",
-                                fontSize: 16, fontWeight: 700, color: loadingCompare ? C.textMuted : C.darkGreen,
+                                fontSize: 16, fontWeight: 700, color: loadingCompare ? C.textMuted : C.white,
                                 cursor: loadingCompare ? "default" : "pointer"
                             }}
                         >
@@ -1487,7 +1577,13 @@ function ComparisonSection() {
                 )}
 
                 {compareResults && (
-                    <div style={{ marginTop: 48, background: C.cardBg, borderRadius: 20, padding: 32 }}>
+                    <div style={{
+                        marginTop: 48,
+                        background: C.cardBg,
+                        borderRadius: 20,
+                        padding: 32,
+                        border: "4px solid #9B7BFF"
+                    }}>
                         <h3 style={{ fontSize: 24, fontWeight: 700, color: C.darkGreen, marginBottom: 24 }}>Результаты сравнения</h3>
                         <div style={{ display: "grid", gridTemplateColumns: `repeat(${offers.length}, 1fr)`, gap: 16, marginBottom: 32 }}>
                             {offers.map((offer, idx) => {
@@ -1497,8 +1593,8 @@ function ComparisonSection() {
                                 const isBest = res.score === Math.max(...allScores);
                                 return (
                                     <div key={offer.id} style={{
-                                        background: isBest ? "rgba(45,106,79,0.3)" : "rgba(255,255,255,0.06)",
-                                        border: isBest ? `2px solid ${C.success}` : `1px solid ${C.border}`,
+                                        background: isBest ? "rgba(45,106,79,0.3)" : "rgba(155, 123, 255, 0.2)",
+                                        border: isBest ? `4px solid ${C.success}` : `2px solid #9B7BFF`,
                                         borderRadius: 16, padding: 20, position: "relative"
                                     }}>
                                         {isBest && <span style={{ position: "absolute", top: -10, right: 10, background: C.success, color: C.white, fontSize: 12, fontWeight: 700, padding: "4px 8px", borderRadius: 20 }}>🏆 Лучшее</span>}
@@ -1516,14 +1612,14 @@ function ComparisonSection() {
 
                         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
                             <thead>
-                                <tr style={{ background: "rgba(26,58,46,0.05)" }}>
+                                <tr style={{ background: "rgba(155, 123, 255, 0.3)" }}>
                                     <th style={{ padding: 12, textAlign: "left", color: C.textMuted, fontWeight: 600 }}>Параметр</th>
                                     {offers.map(o => <th key={o.id} style={{ padding: 12, textAlign: "left", color: C.darkGreen }}>{o.name}</th>)}
                                 </tr>
                             </thead>
                             <tbody>
                                 {["amount", "term", "rate", "monthlyPayment", "hiddenFeesTotal"].map((field, idx) => (
-                                    <tr key={field} style={{ background: idx % 2 === 0 ? "rgba(26,58,46,0.02)" : "transparent" }}>
+                                    <tr key={field} style={{ background: idx % 2 === 0 ? "rgba(155, 123, 255, 0.1)" : "transparent" }}>
                                         <td style={{ padding: 12, fontWeight: 600, color: C.darkGreen }}>
                                             {field === "amount" ? "Сумма" : field === "term" ? "Срок" : field === "rate" ? "Ставка" : field === "monthlyPayment" ? "Платёж" : "Скрытые комиссии"}
                                         </td>
@@ -1583,19 +1679,20 @@ function ChatAssistant() {
                     position: "fixed", bottom: 104, right: 32,
                     width: 360, height: 520, background: C.cardBg,
                     borderRadius: 20, boxShadow: "0 20px 60px rgba(0,0,0,0.4)",
-                    zIndex: 200, display: "flex", flexDirection: "column"
+                    zIndex: 200, display: "flex", flexDirection: "column",
+                    border: "4px solid #9B7BFF"
                 }}>
                     <div style={{
-                        background: C.darkGreen, padding: "16px 20px",
-                        borderTopLeftRadius: 20, borderTopRightRadius: 20,
+                        background: C.lavenderGradient, padding: "16px 20px",
+                        borderTopLeftRadius: 16, borderTopRightRadius: 16,
                         display: "flex", alignItems: "center", justifyContent: "space-between"
                     }}>
                         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                             <span style={{ width: 8, height: 8, borderRadius: "50%", background: C.onlineDot }} />
-                            <span style={{ fontSize: 14, fontWeight: 700, color: C.textLight }}>AI-ассистент</span>
-                            <span style={{ fontSize: 12, opacity: 0.55, color: C.textLight }}>— вопросы по кредитам</span>
+                            <span style={{ fontSize: 14, fontWeight: 700, color: C.white }}>AI-ассистент</span>
+                            <span style={{ fontSize: 12, opacity: 0.9, color: C.white }}>— вопросы по кредитам</span>
                         </div>
-                        <button onClick={() => setIsOpen(false)} style={{ background: "none", border: "none", color: C.textLight, fontSize: 20, cursor: "pointer", opacity: 0.6 }}>✕</button>
+                        <button onClick={() => setIsOpen(false)} style={{ background: "none", border: "none", color: C.white, fontSize: 20, cursor: "pointer", opacity: 0.8 }}>✕</button>
                     </div>
 
                     <div style={{ flex: 1, overflowY: "auto", padding: 16, display: "flex", flexDirection: "column", gap: 10 }}>
@@ -1603,8 +1700,8 @@ function ChatAssistant() {
                             <div key={idx} style={{
                                 alignSelf: msg.role === "user" ? "flex-end" : "flex-start",
                                 maxWidth: "80%",
-                                background: msg.role === "user" ? C.darkGreen : C.white,
-                                color: msg.role === "user" ? C.textLight : C.darkGreen,
+                                background: msg.role === "user" ? C.lavenderGradient : C.white,
+                                color: msg.role === "user" ? C.white : C.darkGreen,
                                 borderRadius: msg.role === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px",
                                 padding: "12px 16px", fontSize: 13, lineHeight: 1.6,
                                 boxShadow: "0 2px 8px rgba(0,0,0,0.1)"
@@ -1629,7 +1726,7 @@ function ChatAssistant() {
                                     key={i}
                                     onClick={() => { setInput(s); sendMessage(); }}
                                     style={{
-                                        background: "transparent", border: `1px solid #d0d8d4`,
+                                        background: "rgba(155, 123, 255, 0.2)", border: `2px solid #9B7BFF`,
                                         borderRadius: 99, padding: "6px 12px", fontSize: 11,
                                         color: C.darkGreen, cursor: "pointer"
                                     }}
@@ -1638,7 +1735,7 @@ function ChatAssistant() {
                         </div>
                     )}
 
-                    <div style={{ padding: 16, borderTop: "1px solid #e0e8e4", background: C.white }}>
+                    <div style={{ padding: 16, borderTop: "2px solid #9B7BFF", background: C.white }}>
                         <div style={{ display: "flex", gap: 8 }}>
                             <input
                                 value={input}
@@ -1646,7 +1743,7 @@ function ChatAssistant() {
                                 onKeyDown={e => e.key === "Enter" && sendMessage()}
                                 placeholder="Введите вопрос..."
                                 style={{
-                                    flex: 1, padding: "10px 12px", border: `1.5px solid #d0d8d4`,
+                                    flex: 1, padding: "10px 12px", border: `2px solid #9B7BFF`,
                                     borderRadius: 10, fontSize: 13, outline: "none"
                                 }}
                             />
@@ -1654,9 +1751,10 @@ function ChatAssistant() {
                                 onClick={sendMessage}
                                 disabled={!input.trim()}
                                 style={{
-                                    background: input.trim() ? C.darkGreen : "#d0d8d4",
+                                    background: input.trim() ? C.lavenderGradient : "#d0d8d4",
                                     border: "none", borderRadius: 10, padding: "10px 16px",
-                                    color: C.white, fontSize: 16, cursor: input.trim() ? "pointer" : "default"
+                                    color: input.trim() ? C.white : C.textMuted, fontSize: 16,
+                                    cursor: input.trim() ? "pointer" : "default"
                                 }}
                             >→</button>
                         </div>
@@ -1669,7 +1767,7 @@ function ChatAssistant() {
                 style={{
                     position: "fixed", bottom: 32, right: 32,
                     width: 60, height: 60, borderRadius: "50%",
-                    background: C.darkGreen, border: "none",
+                    background: C.lavenderGradient, border: "none",
                     boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
                     cursor: "pointer", display: "flex", alignItems: "center",
                     justifyContent: "center", zIndex: 150,
@@ -1678,7 +1776,7 @@ function ChatAssistant() {
                 onMouseEnter={e => e.currentTarget.style.transform = "scale(1.1)"}
                 onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
             >
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={C.textLight} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={C.white} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                 </svg>
             </button>
@@ -1692,7 +1790,7 @@ function Footer() {
             <div style={{
                 minHeight: 80, display: "flex", alignItems: "center",
                 justifyContent: "center", gap: 32,
-                borderTop: `1px solid ${C.border}`
+                borderTop: `4px solid #9B7BFF`
             }}>
                 <a href="#" style={{ color: C.footerText, fontSize: 14, textDecoration: "none", transition: "color 0.2s" }}
                     onMouseEnter={e => e.currentTarget.style.color = C.textLight}
@@ -1711,9 +1809,10 @@ const downloadPdf = async (analysis) => {
         const toast = document.createElement('div');
         toast.style.cssText = `
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-            background: #2D6A4F; color: white; padding: 12px 24px;
+            background: linear-gradient(135deg, #9B7BFF, #6A4E9B);
+            color: white; padding: 12px 24px;
             border-radius: 40px; z-index: 9999; font-weight: 600;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            border: 2px solid #B8A0FF;
         `;
         toast.textContent = 'Генерируем файл...';
         document.body.appendChild(toast);
@@ -1869,9 +1968,9 @@ export default function App() {
           to { opacity: 1; transform: translateY(0); }
         }
         @keyframes chatPulse {
-          0% { box-shadow: 0 0 0 0 rgba(45,106,79,0.7); }
-          70% { box-shadow: 0 0 0 15px rgba(45,106,79,0); }
-          100% { box-shadow: 0 0 0 0 rgba(45,106,79,0); }
+          0% { box-shadow: 0 0 0 0 #9B7BFF; }
+          70% { box-shadow: 0 0 0 20px rgba(155, 123, 255, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(155, 123, 255, 0); }
         }
       `}</style>
 
@@ -1898,9 +1997,10 @@ export default function App() {
                             <button
                                 onClick={handleAnalyze}
                                 style={{
-                                    background: C.success, border: "none", borderRadius: 40,
+                                    background: C.lavenderGradient, border: "none", borderRadius: 40,
                                     padding: "16px 48px", fontSize: 16, fontWeight: 700,
-                                    color: C.white, cursor: "pointer", boxShadow: "0 4px 12px rgba(0,0,0,0.2)"
+                                    color: C.white, cursor: "pointer",
+                                    border: "2px solid #B8A0FF"
                                 }}
                             >Анализировать</button>
                         </div>
