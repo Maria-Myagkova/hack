@@ -1,12 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import Busboy from "busboy";
-import pdf from "pdf-parse";
-import mammoth from "mammoth";
+
 
 const UPSTREAM_ENDPOINT = "https://openrouter.ai/api/v1/chat/completions";
 const DEFAULT_MODEL = "openrouter/hunter-alpha";
-const REQUEST_TIMEOUT_MS = 45000;
+const REQUEST_TIMEOUT_MS = 600000;
 const KEY_CANDIDATES = ["DEEPSEEK_API_KEY", "GEMINI_API_KEY", "GOOGLE_API_KEY"];
 const MAX_FILE_SIZE = 1024 * 1024;
 
@@ -116,10 +115,14 @@ function resolveApiKey() {
 async function extractTextFromFile(fileBuffer, filename, mimeType) {
     const ext = path.extname(filename).toLowerCase();
     if (mimeType === "application/pdf" || ext === ".pdf") {
-        const data = await pdf(fileBuffer);
+        const pdf = await import('pdf-parse');
+        const pdfParse = pdf.default || pdf; // универсально
+        const data = await pdfParse(fileBuffer);
         return data.text;
     } else if (mimeType === "application/vnd.openxmlformats-officedocument.wordprocessingml.document" || ext === ".docx") {
-        const result = await mammoth.extractRawText({ buffer: fileBuffer });
+        const mammoth = await import('mammoth');
+        const mammothLib = mammoth.default || mammoth;
+        const result = await mammothLib.extractRawText({ buffer: fileBuffer });
         return result.value;
     } else if (mimeType.startsWith("text/") || ext === ".txt") {
         return fileBuffer.toString("utf-8");
